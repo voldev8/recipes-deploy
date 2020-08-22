@@ -1,0 +1,43 @@
+.bigButton {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 8rem;
+  height: 6rem;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  animation: appear 0.4s ease-out;
+  background-color: #fff;
+  margin: 2rem;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.bigButton:hover {
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+  transition: 1s all;
+}
+.bigButton-link {
+  text-decoration: none;
+}
+.bigButton p {
+  align-self: center;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  color: #d34d16;
+}
+/* @keyframes appear {
+  0% {
+    transform: scale(0.5);
+  }
+  80% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */
+
+@media (max-width: 35rem) {
+}

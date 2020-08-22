@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Sehriye soup",
+    "ingredients": [
+      "1 onion",
+      "1 garlic",
+      "1 spoon butter",
+      "1 spoon olive oil"
+    ],
+    "instructions": ["mix", "cook", "eat"],
+    "image": "https://exploringtheturkishkitchen.com/images/com_joomrecipe/294/cropped-Orzosoup.protected.jpg",
+    "link": "https://yemek.com/tarif/sehriye-corbasi/",
+    "tags": ["soup"]
+  },
+  {
+    "name": "Barbunya Pilaki",
+    "ingredients": ["1 onion", "1 garlic", "1 spoons of butter", "1 cup sugar"],
+    "instructions": ["mix", "cook", "eat"],
+    "image": "https://exploringtheturkishkitchen.com/images/com_joomrecipe/294/cropped-Orzosoup.protected.jpg",
+    "link": "https://www.nefisyemektarifleri.com/zeytinyagli-barbunya-tarifi-223409/",
+    "tags": ["summer", "bean", "salad"]
+  }
+]

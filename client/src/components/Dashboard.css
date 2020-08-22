@@ -1,0 +1,23 @@
+.dashboard {
+  /* display: flex;
+  flex-direction: column;
+  height: 100%; */
+}
+.dash_welcome .info {
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+.dash_welcome {
+  position: absolute;
+  top: 5rem;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  height: 3rem;
+}
+
+@media (max-width: 35rem) {
+  .dashboard {
+    margin-top: 3rem;
+  }
+}
