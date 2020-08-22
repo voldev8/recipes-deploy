@@ -1,7 +1,7 @@
 {
   "name": "flavorites",
   "version": "1.0.0",
-  "description": "Contact manager app",
+  "description": "Recipe app",
   "main": "app.js",
   "private": true,
   "scripts": {
