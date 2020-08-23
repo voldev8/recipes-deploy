@@ -26,7 +26,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, '../client/public')));
+app.use(express.static(path.join(__dirname, '/client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 
 app.use('/api/recipes', recipesRouter);
 app.use('/api/users', usersRouter);
@@ -38,31 +42,10 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// error handler
-// app.use(function (err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-//   // render the error page
-//   res.status(err.status || 500);
-//   // res.render('error');
-// });
-
-// Serve static assets in production
-// if (process.env.NODE_ENV === 'production') {
-// Set static folder
-app.use(express.static(path.join(__dirname, '../client/build')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '../client/build/index.html'));
-});
-// }
-
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`${process.env.NODE_ENV} App listening on ${PORT}`);
+  console.log(`${process.env.NODE_ENV}, App listening on ${PORT}`);
 });
 
 module.exports = app;
