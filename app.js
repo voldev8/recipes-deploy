@@ -7,6 +7,7 @@ const connectDB = require('./db');
 const dotenv = require('dotenv');
 const errorHandler = require('./middleware/error');
 const helmet = require('helmet');
+var cors = require('cors');
 
 //load env variables
 dotenv.config();
@@ -19,8 +20,9 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 
 const app = express();
+app.use(cors());
 
-app.use(helmet());
+// app.use(helmet());
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -28,7 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-app.get('/*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + 'client', 'build', 'index.html'));
 });
 
