@@ -38,7 +38,7 @@ const AuthState = (props) => {
   // Load User
   const loadUser = async () => {
     try {
-      const res = await axios.get('/users');
+      const res = await axios.get('/api/users');
 
       dispatch({
         type: USER_LOADED,
@@ -52,7 +52,7 @@ const AuthState = (props) => {
   // Register User
   const signup = async (formData) => {
     try {
-      const res = await axios.post('/auth/signup', formData, {
+      const res = await axios.post('/api/auth/signup', formData, {
         withCredentials: true,
       });
 
@@ -73,7 +73,7 @@ const AuthState = (props) => {
   // Login User
   const login = async (formData) => {
     try {
-      const res = await axios.post('/auth/login', formData, {
+      const res = await axios.post('/api/auth/login', formData, {
         withCredentials: true,
       });
       dispatch({
@@ -92,7 +92,7 @@ const AuthState = (props) => {
   // Logout User
   const logout = async () => {
     try {
-      await axios.get('/auth/logout');
+      await axios.get('/api/auth/logout');
       dispatch({
         type: LOGOUT,
       });
@@ -104,7 +104,7 @@ const AuthState = (props) => {
   const forgotPassword = async (email) => {
     try {
       const res = await axios.post(
-        '/auth/forgotpassword',
+        '/api/auth/forgotpassword',
         { email },
         {
           headers: {
@@ -127,7 +127,7 @@ const AuthState = (props) => {
   const resetPassword = async (password, resetToken) => {
     try {
       const res = await axios.put(
-        `/auth/resetpassword/${resetToken}`,
+        `/api/auth/resetpassword/${resetToken}`,
         { password },
         {
           withCredentials: true,
@@ -149,7 +149,7 @@ const AuthState = (props) => {
 
   const getFav = async () => {
     try {
-      const res = await axios.get('/users/fav');
+      const res = await axios.get('/api/users/fav');
 
       dispatch({
         type: GET_FAV,
@@ -162,7 +162,7 @@ const AuthState = (props) => {
   const addFav = async (recipeId) => {
     try {
       const res = await axios.put(
-        '/users/addfav',
+        '/api/users/addfav',
         { recipeId: recipeId },
         {
           headers: {
@@ -181,7 +181,7 @@ const AuthState = (props) => {
   const removeFav = async (recipeId) => {
     try {
       const res = await axios.put(
-        '/users/removefav',
+        '/api/users/removefav',
         { recipeId: recipeId },
         {
           headers: {

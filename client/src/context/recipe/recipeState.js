@@ -28,7 +28,7 @@ const RecipeState = (props) => {
   // Get Recipes
   const getRecipes = async () => {
     try {
-      const res = await axios.get('/recipes');
+      const res = await axios.get('/api/recipes');
 
       dispatch({
         type: GET_RECIPES,
@@ -41,7 +41,7 @@ const RecipeState = (props) => {
   // Get Recipe
   const getRecipe = async (id) => {
     try {
-      const res = await axios.get(`/recipes/${id}`);
+      const res = await axios.get(`/api/recipes/${id}`);
 
       dispatch({
         type: GET_RECIPE,
@@ -54,7 +54,7 @@ const RecipeState = (props) => {
   // Add Recipe
   const addRecipe = async (recipe) => {
     try {
-      const res = await axios.post(`/recipes`, recipe, {
+      const res = await axios.post(`/api/recipes`, recipe, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -71,7 +71,7 @@ const RecipeState = (props) => {
   // Add Recipe
   const updateRecipe = async (recipe) => {
     try {
-      const res = await axios.put(`/recipes/${recipe.id}`, recipe, {
+      const res = await axios.put(`/api/recipes/${recipe.id}`, recipe, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -88,7 +88,7 @@ const RecipeState = (props) => {
   // Delete Recipe
   const deleteRecipe = async (id) => {
     try {
-      await axios.delete(`/recipes/${id}`);
+      await axios.delete(`/api/recipes/${id}`);
 
       dispatch({
         type: DELETE_RECIPE,
