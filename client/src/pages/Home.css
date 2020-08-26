@@ -13,3 +13,8 @@
     width: 100vw;
   }
 }
+@media (max-width: 30rem) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}

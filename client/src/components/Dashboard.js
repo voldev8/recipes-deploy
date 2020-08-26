@@ -31,7 +31,10 @@ const Dashboard = () => {
     <>
       <div className="dash_welcome">
         <h3 className="info">
-          Hello, {user && user.data.name}. Your <span>flavorites</span>.{' '}
+          Hello,{' '}
+          {user &&
+            user.data.name.charAt(0).toUpperCase() + user.data.name.slice(1)}
+          . Your <span>flavorites</span>.{' '}
         </h3>
       </div>
 

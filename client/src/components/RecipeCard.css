@@ -183,7 +183,7 @@
   }
   .recipe-card {
     width: 90vw;
-    height: 75vh;
+    height: 500px;
   }
   .recipe-card-img img {
     height: 150px;
@@ -211,5 +211,21 @@
   .recipe-card-buttons {
     height: 80px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+}
+@media (max-width: 30rem) {
+  .recipe-card-img img {
+    height: 140px;
+  }
+  .recipe-card-content {
+    height: 260px;
+  }
+  .recipe-card-front h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-bottom: 8px;
+  }
+  .recipe-card-back h4 {
+    font-size: 1.1rem;
   }
 }

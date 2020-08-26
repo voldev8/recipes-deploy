@@ -44,7 +44,7 @@ const Login = () => {
       setAlert('Please fill in all fields', 'danger');
     } else {
       login({
-        name,
+        name: name.toLowerCase(),
         password,
       });
     }
@@ -65,7 +65,6 @@ const Login = () => {
               name="name"
               id="name"
               required
-              autoFocus
               onChange={handleChange}
             />
           </div>

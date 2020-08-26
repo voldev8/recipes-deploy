@@ -27,3 +27,13 @@
     margin: 2rem 1rem;
   }
 }
+@media (max-width: 30rem) {
+  .main .info {
+    font-size: 1rem;
+    margin: 1rem 1rem;
+    padding: 0 4px;
+  }
+  .info span {
+    font-size: 1rem;
+  }
+}

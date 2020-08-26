@@ -46,7 +46,7 @@ const Signup = () => {
       setAlert('Passwords do not match', 'danger');
     } else {
       signup({
-        name,
+        name: name.toLowerCase(),
         email,
         password,
       });

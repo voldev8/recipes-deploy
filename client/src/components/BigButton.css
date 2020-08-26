@@ -41,3 +41,14 @@
 
 @media (max-width: 35rem) {
 }
+@media (max-width: 30rem) {
+  .bigButton {
+    width: 5rem;
+    height: 4rem;
+    margin: 1rem;
+    border-radius: 10px;
+  }
+  .bigButton p {
+    font-size: 1rem;
+  }
+}
