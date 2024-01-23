@@ -1,0 +1,13 @@
+node_modules/
+.env
+
+/client/build
+
+/client/node_modules
+/server/node_modules
+
+/server/.env
+
+npm-debug.log*
+yarin-debug.log*
+yarn-error.log*
