@@ -1,0 +1,24 @@
+footer {
+  height: 8rem;
+  background: linear-gradient(to left top, #f1c40f, #e67e22);
+  box-shadow: 2px -3px 6px rgba(0, 0, 0, 0.4);
+}
+footer:hover {
+  transition: 0.6s;
+  box-shadow: 2px -3px 12px rgba(0, 0, 0, 0.8);
+}
+.gitLink {
+  float: left;
+  margin: 4rem 0 0 2rem;
+}
+.gitLink img:hover {
+  border-radius: 50%;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.8);
+  transform: scale(1.2);
+  transition: scale 1s;
+}
+.copyright {
+  color: #fff;
+  float: right;
+  margin: 5rem 1rem 0 0;
+}

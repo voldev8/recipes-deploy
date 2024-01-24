@@ -1,0 +1,39 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.main div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.main .info {
+  font-size: 1.2rem;
+  margin: 2rem;
+}
+.info span {
+  display: inline-block;
+  color: #e74c3c;
+  background-color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 800;
+  transform: rotate(-3deg);
+  padding: 2px;
+  font-family: 'Gorditas', cursive;
+}
+@media (max-width: 35rem) {
+  .main .info {
+    margin: 2rem 1rem;
+  }
+}
+@media (max-width: 30rem) {
+  .main .info {
+    font-size: 1rem;
+    margin: 1rem 1rem;
+    padding: 0 4px;
+  }
+  .info span {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,43 @@
+.recipe-alert {
+  z-index: 10000;
+  position: fixed;
+  top: 6rem;
+  color: #fff;
+  background-color: #e67e22;
+  font-size: 1.4rem;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  align-self: center;
+}
+.recipe-alert p {
+  margin: 3rem;
+}
+.recipe-alert button {
+  float: right;
+  margin: 4px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.choice {
+  margin-right: 2rem;
+}
+.choice button {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.recipe-alert button:hover {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 35rem) {
+  .recipe-alert p {
+    margin: 2rem;
+  }
+  .recipe-alert button {
+    font-size: 1.2rem;
+  }
+}
