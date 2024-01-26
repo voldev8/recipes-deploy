@@ -1,15 +1,17 @@
-import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import logo from '../media/recipe-app-logo.png';
+import { useState, useContext, useRef } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
-import Sidebar from './Sidebar';
-import { CSSTransitionGroup } from 'react-transition-group';
+import logo from "/recipe-app-logo.png";
 
-import AuthContext from '../context/auth/authContext';
+import Sidebar from "./Sidebar";
+// import { CSSTransitionGroup } from "react-transition-group";
 
-import './Navbar.css';
+import AuthContext from "../context/auth/authContext";
+
+import "./Navbar.css";
 
 function Navbar() {
+  const nodeRef = useRef(null);
   const authContext = useContext(AuthContext);
   const { isAuthenticated, logout } = authContext;
 
@@ -18,30 +20,30 @@ function Navbar() {
     setSidebar(!sidebar);
   };
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const loggingOut = () => {
     logout();
-    history.push('/');
+    navigate("/");
   };
   return (
     <>
       <nav className="navbar">
         <div className="logo">
-          <a href="/">
+          <Link to="/">
             <img src={logo} alt="logo" />
             <h2>Flavorites</h2>
-          </a>
+          </Link>
         </div>
         <div className="pages">
-          <a href="/recipes">Recipes</a>
-          <a href="/recipe-search">Search</a>
+          <Link to="/recipes">Recipes</Link>
+          <Link to="/recipe-search">Search</Link>
           {isAuthenticated && (
             <>
-              <a href="/">My Flavorites</a>
-              <a href="/recipe-add">Add a recipe</a>
-              <a href="#!" onClick={loggingOut}>
+              <Link to="/">My Flavorites</Link>
+              <Link to="/recipe-add">Add a recipe</Link>
+              <Link to="#!" onClick={loggingOut}>
                 Logout
-              </a>
+              </Link>
             </>
           )}
         </div>
@@ -76,14 +78,14 @@ function Navbar() {
           )}
         </div>
       </nav>
-      <CSSTransitionGroup
+      {/* <CSSTransition
         className="sidebar-outer"
         transitionName="slide"
         transitionEnterTimeout={500}
         transitionLeaveTimeout={300}
-      >
-        {sidebar && <Sidebar />}
-      </CSSTransitionGroup>
+      > */}
+      {sidebar && <Sidebar />}
+      {/* </CSSTransition> */}
     </>
   );
 }

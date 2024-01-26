@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { CSSTransitionGroup } from 'react-transition-group';
-import './Input.css';
+import { useState } from "react";
+// import { CSSTransitionGroup } from "react-transition-group";
+import "./Input.css";
 
 const Input = ({ input_type, fn, rowType }) => {
   const [focus, setFocus] = useState(false);
@@ -22,17 +22,18 @@ const Input = ({ input_type, fn, rowType }) => {
   // handle add button
   const handleAddClick = (e) => {
     e.preventDefault();
-    fn([...input_type, '']);
+    fn([...input_type, ""]);
     setFocus(true);
   };
 
   return (
-    <CSSTransitionGroup
-      className="row"
-      transitionName="fade"
-      transitionEnterTimeout={500}
-      transitionLeaveTimeout={300}
-    >
+    // <CSSTransitionGroup
+    //   className="row"
+    //   transitionName="fade"
+    //   transitionEnterTimeout={500}
+    //   transitionLeaveTimeout={300}
+    // >
+    <>
       <label htmlFor={rowType}>
         <p>{`${rowType}:`}</p>
       </label>
@@ -64,7 +65,7 @@ const Input = ({ input_type, fn, rowType }) => {
             </div>
           </div>
         ))}
-    </CSSTransitionGroup>
+    </>
   );
 };
 

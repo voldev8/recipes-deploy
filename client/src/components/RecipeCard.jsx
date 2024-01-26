@@ -1,21 +1,13 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from "react";
 
-import AlertContext from '../context/alert/alertContext';
-import AuthContext from '../context/auth/authContext';
+import AlertContext from "../context/alert/alertContext";
+import AuthContext from "../context/auth/authContext";
 
-import './RecipeCard.css';
+import "./RecipeCard.css";
 
 const RecipeCard = ({ recipe }) => {
-  const {
-    name,
-    ingredients,
-    instructions,
-    tags,
-    image,
-    link,
-    _id,
-    createdBy,
-  } = recipe;
+  const { name, ingredients, instructions, tags, image, link, _id, createdBy } =
+    recipe;
   const [flip, setFlip] = useState(false);
 
   const alertContext = useContext(AlertContext);
@@ -26,17 +18,17 @@ const RecipeCard = ({ recipe }) => {
 
   const handleDelete = (e) => {
     e.preventDefault();
-    localStorage.setItem('delete_id', _id);
-    setAlert('Are you sure you want to delete this recipe?', 'delete');
+    localStorage.setItem("delete_id", _id);
+    setAlert("Are you sure you want to delete this recipe?", "delete");
   };
   const handleEdit = () => {
-    localStorage.setItem('edit_id', _id);
+    localStorage.setItem("edit_id", _id);
   };
 
   return (
     <div className="recipe-card-outer">
       <div
-        className={`recipe-card ${flip ? 'flip-it' : ''}`}
+        className={`recipe-card ${flip ? "flip-it" : ""}`}
         onClick={() => setFlip(!flip)}
       >
         <div className="recipe-card-inner">
@@ -53,7 +45,7 @@ const RecipeCard = ({ recipe }) => {
                     ? ingredients.map((ingredient, i) => (
                         <li key={i}>{ingredient}</li>
                       ))
-                    : ''}
+                    : ""}
                 </ul>
               </div>
               <ul className="recipe-card-tags">
@@ -68,7 +60,7 @@ const RecipeCard = ({ recipe }) => {
                 ? instructions.map((instruction, i) => (
                     <li key={i}>{instruction}</li>
                   ))
-                : ''}
+                : ""}
             </ol>
           </div>
         </div>

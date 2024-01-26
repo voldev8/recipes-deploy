@@ -1,5 +1,4 @@
-import React from 'react';
-import './Loading.css';
+import "./Loading.css";
 
 function Loading() {
   return <div className="loading"></div>;

@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
+import { useContext } from "react";
 
-import BigButton from '../components/BigButton.js';
-import Loading from '../components/Loading.js';
-import Dashboard from '../components/Dashboard.js';
+import BigButton from "../components/BigButton.jsx";
+import Loading from "../components/Loading.jsx";
+import Dashboard from "../components/Dashboard.jsx";
 
-import AuthContext from '../context/auth/authContext';
+import AuthContext from "../context/auth/authContext.js";
 
-import './Main.css';
+import "./Main.css";
 
 const Main = () => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, loading } = authContext;
-
+  console.log(isAuthenticated);
   return (
     <div className="container">
       {loading ? (
@@ -25,8 +25,8 @@ const Main = () => {
             sign up to share recipes and create your own flavorites catalog.
           </p>
           <div>
-            <BigButton name={'Log in'} href="/login" />
-            <BigButton name={'Sign up'} href="/signup" />
+            <BigButton name={"Log in"} href="/login" />
+            <BigButton name={"Sign up"} href="/signup" />
           </div>
         </div>
       )}

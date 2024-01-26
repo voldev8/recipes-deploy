@@ -1,10 +1,9 @@
-import React, { useState, useContext, useEffect } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useState, useContext, useEffect } from "react";
 
-import Header from '../components/Header';
+import Header from "../components/Header";
 
-import AlertContext from '../context/alert/alertContext';
-import AuthContext from '../context/auth/authContext';
+import AlertContext from "../context/alert/alertContext";
+import AuthContext from "../context/auth/authContext";
 
 const ForgotPass = () => {
   const alertContext = useContext(AlertContext);
@@ -13,12 +12,11 @@ const ForgotPass = () => {
   const authContext = useContext(AuthContext);
   const { forgotPassword, error, clearErrors } = authContext;
 
-  // const history = useHistory();
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     if (error) {
-      setAlert(error, 'danger');
+      setAlert(error, "danger");
       clearErrors();
     }
 
@@ -31,7 +29,7 @@ const ForgotPass = () => {
     forgotPassword(email);
 
     if (!error) {
-      setAlert('A reset password email is sent', 'danger');
+      setAlert("A reset password email is sent", "danger");
     }
   };
 
@@ -42,7 +40,7 @@ const ForgotPass = () => {
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="row">
             <label htmlFor="email">
-              <p>Your Email:</p>{' '}
+              <p>Your Email:</p>{" "}
             </label>
             <input
               className="recipe-input"

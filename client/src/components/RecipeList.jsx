@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from "react";
 
-import RecipeCard from './RecipeCard.js';
-import Loading from './Loading.js';
+import RecipeCard from "./RecipeCard.jsx";
+import Loading from "./Loading.jsx";
 
-import RecipeContext from '../context/recipe/recipeContext';
+import RecipeContext from "../context/recipe/recipeContext.js";
 
-import './RecipeList.css';
+import "./RecipeList.css";
 
 const RecipeList = () => {
   const recipeContext = useContext(RecipeContext);

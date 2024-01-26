@@ -1,10 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-import Header from '../components/Header';
+import Header from "../components/Header";
 
-import AlertContext from '../context/alert/alertContext';
-import AuthContext from '../context/auth/authContext';
+import AlertContext from "../context/alert/alertContext";
+import AuthContext from "../context/auth/authContext";
 
 const ResetPass = () => {
   const alertContext = useContext(AlertContext);
@@ -13,20 +13,20 @@ const ResetPass = () => {
   const authContext = useContext(AuthContext);
   const { resetPassword, error, clearErrors, isAuthenticated } = authContext;
 
-  const history = useHistory();
+  const history = useNavigate();
   const [password, setPassword] = useState({
-    password: '',
-    password2: '',
+    password: "",
+    password2: "",
   });
-  const [resetToken, setResetToken] = useState('');
+  const [resetToken, setResetToken] = useState("");
 
   useEffect(() => {
-    setResetToken(history.location.pathname.split('/')[2]);
+    setResetToken(history.location.pathname.split("/")[2]);
     if (isAuthenticated) {
-      history.push('/');
+      navigate("/");
     }
     if (error) {
-      setAlert(error, 'danger');
+      setAlert(error, "danger");
       clearErrors();
     }
 
@@ -40,7 +40,7 @@ const ResetPass = () => {
     if (password.password === password.password2) {
       resetPassword(password.password, resetToken);
     } else {
-      setAlert('Password do not match', 'danger');
+      setAlert("Password do not match", "danger");
     }
 
     if (!error) {
@@ -55,7 +55,7 @@ const ResetPass = () => {
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="row">
             <label htmlFor="password">
-              <p>New Password:</p>{' '}
+              <p>New Password:</p>{" "}
             </label>
             <input
               className="recipe-input"
@@ -68,7 +68,7 @@ const ResetPass = () => {
           </div>
           <div className="row">
             <label htmlFor="password2">
-              <p>Confirm Password:</p>{' '}
+              <p>Confirm Password:</p>{" "}
             </label>
             <input
               className="recipe-input"

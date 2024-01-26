@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
-import AuthContext from '../context/auth/authContext';
+import AuthContext from "../context/auth/authContext";
 
-import './Sidebar.css';
+import "./Sidebar.css";
 
 function Sidebar() {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, logout } = authContext;
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const loggingOut = () => {
     logout();
-    history.push('/');
+    navigate("/");
   };
 
   return (

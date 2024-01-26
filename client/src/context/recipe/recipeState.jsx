@@ -1,8 +1,8 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
 
-import recipeContext from '../recipe/recipeContext';
-import recipeReducer from '../recipe/recipeReducer';
+import recipeContext from "./recipeContext";
+import recipeReducer from "./recipeReducer";
 
 import {
   GET_RECIPES,
@@ -12,8 +12,9 @@ import {
   DELETE_RECIPE,
   SEARCH_RECIPE_BY_NAME,
   SEARCH_RECIPE_BY_TAG,
-} from '../types';
-import { useReducer } from 'react';
+} from "../types";
+import { useReducer } from "react";
+import axiosPath from "../path-to-axios.js";
 
 const RecipeState = (props) => {
   const initialState = {
@@ -28,7 +29,7 @@ const RecipeState = (props) => {
   // Get Recipes
   const getRecipes = async () => {
     try {
-      const res = await axios.get('/api/recipes');
+      const res = await axiosPath.get("/api/recipes");
 
       dispatch({
         type: GET_RECIPES,
@@ -41,7 +42,7 @@ const RecipeState = (props) => {
   // Get Recipe
   const getRecipe = async (id) => {
     try {
-      const res = await axios.get(`/api/recipes/${id}`);
+      const res = await axiosPath.get(`/api/recipes/${id}`);
 
       dispatch({
         type: GET_RECIPE,
@@ -54,9 +55,9 @@ const RecipeState = (props) => {
   // Add Recipe
   const addRecipe = async (recipe) => {
     try {
-      const res = await axios.post(`/api/recipes`, recipe, {
+      const res = await axiosPath.post(`/api/recipes`, recipe, {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
 
@@ -71,9 +72,9 @@ const RecipeState = (props) => {
   // Add Recipe
   const updateRecipe = async (recipe) => {
     try {
-      const res = await axios.put(`/api/recipes/${recipe.id}`, recipe, {
+      const res = await axiosPath.put(`/api/recipes/${recipe.id}`, recipe, {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
 
@@ -88,7 +89,7 @@ const RecipeState = (props) => {
   // Delete Recipe
   const deleteRecipe = async (id) => {
     try {
-      await axios.delete(`/api/recipes/${id}`);
+      await axiosPath.delete(`/api/recipes/${id}`);
 
       dispatch({
         type: DELETE_RECIPE,

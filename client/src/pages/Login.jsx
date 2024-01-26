@@ -1,12 +1,12 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-import Header from '../components/Header';
+import Header from "../components/Header";
 
-import AlertContext from '../context/alert/alertContext';
-import AuthContext from '../context/auth/authContext';
+import AlertContext from "../context/alert/alertContext";
+import AuthContext from "../context/auth/authContext";
 
-import './Login.css';
+import "./Login.css";
 
 const Login = () => {
   const alertContext = useContext(AlertContext);
@@ -15,23 +15,23 @@ const Login = () => {
   const authContext = useContext(AuthContext);
   const { login, error, isAuthenticated, clearErrors } = authContext;
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isAuthenticated) {
-      history.push('/');
+      navigate("/");
     }
 
-    if (error === 'Invalid Credentials') {
-      setAlert(error, 'danger');
+    if (error === "Invalid Credentials") {
+      setAlert(error, "danger");
       clearErrors();
     }
     // eslint-disable-next-line
-  }, [error, isAuthenticated, history]);
+  }, [error, isAuthenticated]);
 
   const [user, setUser] = useState({
-    name: '',
-    password: '',
+    name: "",
+    password: "",
   });
   const { name, password } = user;
 
@@ -40,8 +40,8 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name === '' || password === '') {
-      setAlert('Please fill in all fields', 'danger');
+    if (name === "" || password === "") {
+      setAlert("Please fill in all fields", "danger");
     } else {
       login({
         name: name.toLowerCase(),
@@ -71,7 +71,7 @@ const Login = () => {
 
           <div className="row">
             <label htmlFor="password">
-              <p>Password:</p>{' '}
+              <p>Password:</p>{" "}
             </label>
             <input
               className="recipe-input"
@@ -83,9 +83,9 @@ const Login = () => {
           </div>
 
           <div className="row">
-            <a href="/forgotpass" className="forgot">
+            {/* <a href="/forgotpass" className="forgot">
               Forgot Password?
-            </a>
+            </a> */}
             <input
               className="recipe-submit-btn"
               type="submit"

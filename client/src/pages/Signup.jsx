@@ -1,37 +1,37 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-import Header from '../components/Header';
+import Header from "../components/Header";
 
-import AlertContext from '../context/alert/alertContext';
-import AuthContext from '../context/auth/authContext';
+import AlertContext from "../context/alert/alertContext";
+import AuthContext from "../context/auth/authContext";
 
-import './Signup.css';
+import "./Signup.css";
 
 const Signup = () => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
   const { setAlert } = alertContext;
   const { signup, isAuthenticated, clearErrors, error } = authContext;
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isAuthenticated) {
-      history.push('/');
+      navigate("/");
     }
 
     if (error) {
-      setAlert(error, 'danger');
+      setAlert(error, "danger");
       clearErrors();
     }
     // eslint-disable-next-line
-  }, [error, isAuthenticated, history]);
+  }, [error, isAuthenticated]);
 
   const [user, setUser] = useState({
-    name: '',
-    email: '',
-    password: '',
-    password_confirm: '',
+    name: "",
+    email: "",
+    password: "",
+    password_confirm: "",
   });
   const { name, email, password, password_confirm } = user;
 
@@ -40,10 +40,10 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name === '' || email === '' || password === '') {
-      setAlert('Please fill in all fields', 'danger');
+    if (name === "" || email === "" || password === "") {
+      setAlert("Please fill in all fields", "danger");
     } else if (password !== password_confirm) {
-      setAlert('Passwords do not match', 'danger');
+      setAlert("Passwords do not match", "danger");
     } else {
       signup({
         name: name.toLowerCase(),
@@ -87,7 +87,7 @@ const Signup = () => {
 
           <div className="row">
             <label htmlFor="password">
-              <p>Password:</p>{' '}
+              <p>Password:</p>{" "}
             </label>
             <input
               className="recipe-input"
@@ -101,7 +101,7 @@ const Signup = () => {
           </div>
           <div className="row">
             <label htmlFor="password_confirm">
-              <p>Confirm Password:</p>{' '}
+              <p>Confirm Password:</p>{" "}
             </label>
             <input
               className="recipe-input"

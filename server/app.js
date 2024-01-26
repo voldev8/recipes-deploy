@@ -1,13 +1,13 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const connectDB = require('./db');
-const dotenv = require('dotenv');
-const errorHandler = require('./middleware/error');
-const helmet = require('helmet');
-var cors = require('cors');
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const connectDB = require("./db");
+const dotenv = require("dotenv");
+const errorHandler = require("./middleware/error");
+const helmet = require("helmet");
+const cors = require("cors");
 
 //load env variables
 dotenv.config();
@@ -15,12 +15,17 @@ dotenv.config();
 // Connect to Database
 connectDB();
 
-const recipesRouter = require('./routes/recipes');
-const usersRouter = require('./routes/users');
-const authRouter = require('./routes/auth');
+const recipesRouter = require("./routes/recipes");
+const usersRouter = require("./routes/users");
+const authRouter = require("./routes/auth");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
 app.use(
   helmet({
@@ -28,18 +33,18 @@ app.use(
   })
 );
 
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname + '/client/build')));
+app.use(express.static(path.join(__dirname + "/client/build")));
 
-app.use('/api/recipes', recipesRouter);
-app.use('/api/users', usersRouter);
-app.use('/api/auth', authRouter);
+app.use("/api/recipes", recipesRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/auth", authRouter);
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client', 'build', 'index.html'));
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client", "build", "index.html"));
 });
 
 app.use(errorHandler);

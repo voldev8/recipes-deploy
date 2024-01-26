@@ -1,18 +1,18 @@
-import React, { useContext, useState } from 'react';
-import RecipeContext from '../context/recipe/recipeContext';
-import './Search.css';
+import { useContext, useState } from "react";
+import RecipeContext from "../context/recipe/recipeContext";
+import "./Search.css";
 
 function Search() {
   const recipeContext = useContext(RecipeContext);
-  const [searchType, setSearchType] = useState('Name');
+  const [searchType, setSearchType] = useState("Name");
 
   const { searchRecipeByName, searchRecipeByTag } = recipeContext;
 
   const handleToggle = () => {
-    searchType === 'Name' ? setSearchType('Tag') : setSearchType('Name');
+    searchType === "Name" ? setSearchType("Tag") : setSearchType("Name");
   };
   const handleChange = (e) => {
-    searchType === 'Tag'
+    searchType === "Tag"
       ? searchRecipeByTag(e.target.value)
       : searchRecipeByName(e.target.value);
   };
@@ -28,7 +28,7 @@ function Search() {
       <div className="switch_outer">
         <span
           style={
-            searchType === 'Name' ? { textShadow: '2px 2px 4px #e74c3c' } : {}
+            searchType === "Name" ? { textShadow: "2px 2px 4px #e74c3c" } : {}
           }
         >
           Name
@@ -39,7 +39,7 @@ function Search() {
         </label>
         <span
           style={
-            searchType === 'Tag' ? { textShadow: '2px 2px 4px #e74c3c' } : {}
+            searchType === "Tag" ? { textShadow: "2px 2px 4px #e74c3c" } : {}
           }
         >
           Tag

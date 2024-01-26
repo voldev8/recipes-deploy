@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
-import RecipeCard from './RecipeCard.js';
+import { useContext, useEffect, useState } from "react";
+import RecipeCard from "./RecipeCard.jsx";
 
-import RecipeContext from '../context/recipe/recipeContext';
-import AuthContext from '../context/auth/authContext';
+import RecipeContext from "../context/recipe/recipeContext.js";
+import AuthContext from "../context/auth/authContext.js";
 
-import './Dashboard.css';
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const recipeContext = useContext(RecipeContext);
@@ -13,7 +13,7 @@ const Dashboard = () => {
   const authContext = useContext(AuthContext);
   const { user } = authContext;
 
-  const [favRecipeIds, setFavRecipeIds] = useState('');
+  const [favRecipeIds, setFavRecipeIds] = useState("");
 
   useEffect(() => {
     if (user) {
@@ -31,10 +31,10 @@ const Dashboard = () => {
     <>
       <div className="dash_welcome">
         <h3 className="info">
-          Hello,{' '}
+          Hello,{" "}
           {user &&
             user.data.name.charAt(0).toUpperCase() + user.data.name.slice(1)}
-          . Your <span>flavorites</span>.{' '}
+          . Your <span>flavorites</span>.{" "}
         </h3>
       </div>
 

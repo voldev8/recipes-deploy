@@ -1,8 +1,8 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
 
-import AuthContext from '../auth/authContext';
-import authReducer from '../auth/authReducer';
+import AuthContext from "./authContext";
+import authReducer from "./authReducer";
 
 import {
   SIGNUP_SUCCESS,
@@ -20,8 +20,9 @@ import {
   ADD_FAV,
   REMOVE_FAV,
   CLEAR_ERRORS,
-} from '../types';
-import { useReducer } from 'react';
+} from "../types";
+import { useReducer } from "react";
+import axiosPath from "../path-to-axios";
 
 const AuthState = (props) => {
   let token = document.cookie.token;
@@ -38,7 +39,7 @@ const AuthState = (props) => {
   // Load User
   const loadUser = async () => {
     try {
-      const res = await axios.get('/api/users');
+      const res = await axiosPath.get("/api/users");
 
       dispatch({
         type: USER_LOADED,
@@ -52,8 +53,8 @@ const AuthState = (props) => {
   // Register User
   const signup = async (formData) => {
     try {
-      const res = await axios.post('/api/auth/signup', formData, {
-        withCredentials: true,
+      const res = await axiosPath.post("/api/auth/signup", formData, {
+        // withCredentials: true,
       });
 
       dispatch({
@@ -73,8 +74,8 @@ const AuthState = (props) => {
   // Login User
   const login = async (formData) => {
     try {
-      const res = await axios.post('/api/auth/login', formData, {
-        withCredentials: true,
+      const res = await axiosPath.post("/api/auth/login", formData, {
+        // withCredentials: true,
       });
       dispatch({
         type: LOGIN_SUCCESS,
@@ -92,7 +93,7 @@ const AuthState = (props) => {
   // Logout User
   const logout = async () => {
     try {
-      await axios.get('/api/auth/logout');
+      await axiosPath.get("/api/auth/logout");
       dispatch({
         type: LOGOUT,
       });
@@ -103,12 +104,12 @@ const AuthState = (props) => {
   // Forgot Password
   const forgotPassword = async (email) => {
     try {
-      const res = await axios.post(
-        '/api/auth/forgotpassword',
+      const res = await axiosPath.post(
+        "/api/auth/forgotpassword",
         { email },
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
@@ -126,11 +127,11 @@ const AuthState = (props) => {
 
   const resetPassword = async (password, resetToken) => {
     try {
-      const res = await axios.put(
+      const res = await axiosPath.put(
         `/api/auth/resetpassword/${resetToken}`,
         { password },
         {
-          withCredentials: true,
+          // withCredentials: true,
         }
       );
       dispatch({
@@ -149,7 +150,7 @@ const AuthState = (props) => {
 
   const getFav = async () => {
     try {
-      const res = await axios.get('/api/users/fav');
+      const res = await axiosPath.get("/api/users/fav");
 
       dispatch({
         type: GET_FAV,
@@ -161,12 +162,12 @@ const AuthState = (props) => {
   };
   const addFav = async (recipeId) => {
     try {
-      const res = await axios.put(
-        '/api/users/addfav',
+      const res = await axiosPath.put(
+        "/api/users/addfav",
         { recipeId: recipeId },
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
@@ -180,12 +181,12 @@ const AuthState = (props) => {
   };
   const removeFav = async (recipeId) => {
     try {
-      const res = await axios.put(
-        '/api/users/removefav',
+      const res = await axiosPath.put(
+        "/api/users/removefav",
         { recipeId: recipeId },
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
