@@ -1,12 +1,28 @@
 .heading {
-  position: absolute;
-  top: 5rem;
   text-align: center;
-  width: 100%;
+  /* width: 100%; */
 }
 .heading h2 {
   font-size: 2.4rem;
-  font-weight: 800;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(81, 67, 21, 0.4);
   color: #d34d16;
+  font-family: "Segoe UI";
+}
+
+.underline span {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.underline span::after {
+  content: "";
+  height: 6px;
+  background: linear-gradient(to right bottom, #e67e22, #f1c40f);
+  border-radius: 6px;
+  display: block;
+  width: 106%;
+  margin-left: -3%;
+  margin-top: 2px;
+  box-shadow: 3px 3px 7px rgba(81, 67, 21, 0.4);
 }

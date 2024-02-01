@@ -17,7 +17,7 @@ const RecipeList = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="recipe-list">
       {loading ? (
         <Loading />
       ) : filtered === null && recipes !== null ? (

@@ -51,7 +51,7 @@ const ResetPass = () => {
   return (
     <>
       <Header heading="Reset Password" />
-      <div className="container">
+      <div>
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="row">
             <label htmlFor="password">

@@ -1,8 +1,8 @@
-import React from "react";
-import axios from "axios";
+import React, { useReducer } from "react";
 
 import AuthContext from "./authContext";
 import authReducer from "./authReducer";
+import axiosPath from "../path-to-axios";
 
 import {
   SIGNUP_SUCCESS,
@@ -21,8 +21,6 @@ import {
   REMOVE_FAV,
   CLEAR_ERRORS,
 } from "../types";
-import { useReducer } from "react";
-import axiosPath from "../path-to-axios";
 
 const AuthState = (props) => {
   let token = document.cookie.token;
@@ -53,15 +51,12 @@ const AuthState = (props) => {
   // Register User
   const signup = async (formData) => {
     try {
-      const res = await axiosPath.post("/api/auth/signup", formData, {
-        // withCredentials: true,
-      });
+      const res = await axiosPath.post("/api/auth/signup", formData);
 
       dispatch({
         type: SIGNUP_SUCCESS,
         payload: res.data,
       });
-
       loadUser();
     } catch (err) {
       dispatch({
@@ -74,14 +69,12 @@ const AuthState = (props) => {
   // Login User
   const login = async (formData) => {
     try {
-      const res = await axiosPath.post("/api/auth/login", formData, {
-        // withCredentials: true,
-      });
+      const res = await axiosPath.post("/api/auth/login", formData);
+
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
       });
-
       loadUser();
     } catch (err) {
       dispatch({
@@ -90,10 +83,12 @@ const AuthState = (props) => {
       });
     }
   };
+
   // Logout User
   const logout = async () => {
     try {
       await axiosPath.get("/api/auth/logout");
+
       dispatch({
         type: LOGOUT,
       });
@@ -101,6 +96,7 @@ const AuthState = (props) => {
       console.log(err);
     }
   };
+
   // Forgot Password
   const forgotPassword = async (email) => {
     try {
@@ -113,6 +109,7 @@ const AuthState = (props) => {
           },
         }
       );
+
       dispatch({
         type: FORGOT_PASS,
         payload: res.data,
@@ -134,6 +131,7 @@ const AuthState = (props) => {
           // withCredentials: true,
         }
       );
+
       dispatch({
         type: RESET_PASS,
         payload: res.data,
@@ -171,6 +169,7 @@ const AuthState = (props) => {
           },
         }
       );
+
       dispatch({
         type: ADD_FAV,
         payload: res.data,
@@ -190,6 +189,7 @@ const AuthState = (props) => {
           },
         }
       );
+
       dispatch({
         type: REMOVE_FAV,
         payload: res.data,

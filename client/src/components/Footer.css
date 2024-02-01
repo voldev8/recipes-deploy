@@ -1,5 +1,6 @@
 footer {
   height: 8rem;
+  margin-top: auto;
   background: linear-gradient(to left top, #f1c40f, #e67e22);
   box-shadow: 2px -3px 6px rgba(0, 0, 0, 0.4);
 }

@@ -13,7 +13,7 @@ const Main = () => {
   const { isAuthenticated, loading } = authContext;
   console.log(isAuthenticated);
   return (
-    <div className="container">
+    <>
       {loading ? (
         <Loading />
       ) : isAuthenticated ? (
@@ -30,7 +30,7 @@ const Main = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

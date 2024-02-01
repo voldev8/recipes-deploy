@@ -1,3 +1,14 @@
+.recipe-list {
+  margin: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-auto-rows: min-content;
+  justify-items: center;
+  gap: 1rem;
+  /* min-height so that search box does not move */
+  min-height: 700px;
+}
+
 .no_match {
   margin: 6rem 1rem;
   font-size: 1.4rem;

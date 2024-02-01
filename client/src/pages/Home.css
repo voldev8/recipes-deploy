@@ -1,11 +1,7 @@
 .container {
   margin: 4rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-auto-rows: min-content;
-  justify-items: center;
-  /* to keep footer always at the bottom  */
-  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 @media (max-width: 35rem) {
   .container {

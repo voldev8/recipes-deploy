@@ -1,8 +1,8 @@
-import React from "react";
-import axios from "axios";
+import React, { useReducer } from "react";
 
 import recipeContext from "./recipeContext";
 import recipeReducer from "./recipeReducer";
+import axiosPath from "../path-to-axios.js";
 
 import {
   GET_RECIPES,
@@ -13,8 +13,6 @@ import {
   SEARCH_RECIPE_BY_NAME,
   SEARCH_RECIPE_BY_TAG,
 } from "../types";
-import { useReducer } from "react";
-import axiosPath from "../path-to-axios.js";
 
 const RecipeState = (props) => {
   const initialState = {
@@ -39,6 +37,7 @@ const RecipeState = (props) => {
       console.log(error);
     }
   };
+
   // Get Recipe
   const getRecipe = async (id) => {
     try {
@@ -52,6 +51,7 @@ const RecipeState = (props) => {
       console.log(error);
     }
   };
+
   // Add Recipe
   const addRecipe = async (recipe) => {
     try {
@@ -69,6 +69,7 @@ const RecipeState = (props) => {
       console.log(error);
     }
   };
+
   // Add Recipe
   const updateRecipe = async (recipe) => {
     try {
@@ -86,6 +87,7 @@ const RecipeState = (props) => {
       console.log(error);
     }
   };
+
   // Delete Recipe
   const deleteRecipe = async (id) => {
     try {
@@ -99,6 +101,7 @@ const RecipeState = (props) => {
       console.log(error);
     }
   };
+
   // Recipe Search by name
   const searchRecipeByName = async (text) => {
     try {
@@ -110,6 +113,7 @@ const RecipeState = (props) => {
       console.log(error);
     }
   };
+
   // Recipe Search by tag
   const searchRecipeByTag = async (text) => {
     try {
