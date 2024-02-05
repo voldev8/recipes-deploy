@@ -5,16 +5,13 @@ import ErrorPage from "./pages/ErrorPage";
 
 import Recipes from "./pages/Recipes";
 import Main from "./pages/Main";
-import Login from "./pages/Login";
-
 // import ForgotPass from "./pages/ForgotPass";
 // import ResetPass from "./pages/ResetPass";
-import Signup from "./pages/Signup";
-import RecipeAdd from "./pages/RecipeAdd";
-import RecipeEdit from "./pages/RecipeEdit";
+
 import RecipeSearch from "./pages/RecipeSearch";
 import NoLink from "./pages/NoLink";
 import UserForm from "./components/UserForm";
+import RecipeForm from "./components/RecipeForm";
 
 import RecipeState from "./context/recipe/recipeState";
 import AlertState from "./context/alert/alertState";
@@ -54,11 +51,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/recipe-add",
-        element: <RecipeAdd />,
+        element: <RecipeForm form_type={"add_recipe"} heading={"New Recipe"} />,
       },
       {
         path: "/recipe-edit/:recipeId",
-        element: <RecipeEdit />,
+        element: (
+          <RecipeForm form_type={"edit_recipe"} heading={"Change Recipe"} />
+        ),
       },
       {
         path: "/recipe-search",

@@ -4,7 +4,7 @@ import "./Footer.css";
 function Footer() {
   return (
     <footer>
-      <a href="https://www.github.com" className="gitLink">
+      <a href="https://github.com/voldev8/recipes-deploy" className="gitLink">
         <img src={githubLogo} alt="github logo" />
       </a>
       <p className="copyright">© 2024 Voldev. All rights reserved.</p>

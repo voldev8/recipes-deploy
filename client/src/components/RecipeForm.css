@@ -1,16 +1,16 @@
-.recipe-form-outer {
+.recipe-form-container {
   display: flex;
   align-self: center;
   justify-content: center;
-  width: 80vw;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  margin-top: 2rem;
+  padding: 2rem 0;
+  width: 65rem;
   height: 40rem;
+  border: 1px solid #d34d16;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
   overflow-y: auto;
   animation: appear 0.4s ease-out;
   background-color: #fff;
-  margin: 4rem;
-  /* background-color: rgba(233, 212, 96, 0.6); */
 }
 @keyframes appear {
   0% {
@@ -23,13 +23,14 @@
     transform: scale(1);
   }
 }
-.recipe-form-outer:hover {
+.recipe-form-container:hover {
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
-  transition: 2s all;
+  transition: 0.4s all;
 }
 .recipe-form {
   color: #ffffff;
   font-size: 1.2rem;
+  transition: 0.4s all;
 }
 
 .row {
@@ -46,8 +47,7 @@
   text-decoration: underline;
   font-weight: 600;
   font-size: 1.2rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-  /* color: rgba(180, 0, 0, 0.6); */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
   color: #d34d16;
 }
 .input-row .recipe-input {
@@ -59,7 +59,7 @@
   width: 34rem;
   height: 1.6rem;
   border: 2px solid #f1c40f;
-  margin: 0.4rem 0.8rem 0.2rem 2rem;
+  margin: 0.4rem 0.8rem 0.4rem 2rem;
   font-size: 1rem;
   padding: 2px 6px;
   border-radius: 3px;
@@ -86,39 +86,7 @@
   color: #d34d16;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
-.btns {
-  display: flex;
-  margin: 6px;
-}
-.btns button {
-  /* display: flex;
-  justify-content: center;
-  align-content: center; */
-  /* text-align: center; */
-  background-color: #f39c12;
-  border-radius: 50%;
-  border: 4px solid transparent;
-  cursor: pointer;
-  margin: 0 0.2rem;
-  color: #ffffff;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-  transition: 0.8s all;
-}
-.btns button:hover {
-  background-color: #ffffff;
-  color: #f39c12;
-  border: 4px solid #f39c12;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
-}
-.btns button:active,
-.btns button:focus {
-  outline: none;
-}
-.btns button p {
-  font-weight: 800;
-  font-size: 1.2rem;
-  /* padding-bottom: 3px; */
-}
+
 .recipe-submit-btn {
   align-self: flex-end;
   height: 2.4rem;
@@ -166,16 +134,6 @@
     font-size: 0.8rem;
     width: 70vw;
     margin: 0.3rem 0rem;
-  }
-  .btns {
-    margin: 4px;
-  }
-  .btns button {
-    border: 1px solid transparent;
-  }
-  .btns button p {
-    font-size: 1rem;
-    padding-bottom: 3px;
   }
   .recipe-submit-btn {
     align-self: center;

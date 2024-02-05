@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Header from "../components/Header";
+import Header from "./Header";
 
 import AlertContext from "../context/alert/alertContext";
 import AuthContext from "../context/auth/authContext";

@@ -1,6 +1,6 @@
 import { useState } from "react";
 // import { CSSTransitionGroup } from "react-transition-group";
-import "./Input.css";
+import "./RecipeInput.css";
 
 const Input = ({ input_type, fn, rowType }) => {
   const [focus, setFocus] = useState(false);
@@ -54,7 +54,7 @@ const Input = ({ input_type, fn, rowType }) => {
             <div className="btns">
               {input_type.length !== 1 && (
                 <button onClick={(e) => handleRemoveClick(e, idx)}>
-                  <p>&minus;</p>
+                  <p>&#8722;</p>
                 </button>
               )}
               {input_type.length - 1 === idx && (

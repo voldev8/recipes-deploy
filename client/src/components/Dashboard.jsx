@@ -37,11 +37,12 @@ const Dashboard = () => {
           . Your <span>flavorites</span>.{" "}
         </h3>
       </div>
-
-      {favRecipes &&
-        favRecipes.map((recipe) => (
-          <RecipeCard key={recipe._id} recipe={recipe} />
-        ))}
+      <div className="recipe-list">
+        {favRecipes &&
+          favRecipes.map((recipe) => (
+            <RecipeCard key={recipe._id} recipe={recipe} />
+          ))}
+      </div>
     </>
   );
 };

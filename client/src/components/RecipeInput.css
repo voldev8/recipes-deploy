@@ -1,0 +1,67 @@
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  width: 4.5rem;
+}
+.btns button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: #f39c12;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  cursor: pointer;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.8s all;
+}
+.btns button:hover {
+  background-color: #ffffff;
+  color: #f39c12;
+  border: 4px solid #f39c12;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+}
+.btns button:active,
+.btns button:focus {
+  outline: none;
+}
+.btns button p {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 35rem) {
+  .btns {
+    margin: 4px;
+  }
+  .btns button {
+    border: 1px solid transparent;
+  }
+  .btns button p {
+    font-size: 1rem;
+    padding-bottom: 3px;
+  }
+  .recipe-submit-btn {
+    align-self: center;
+  }
+}
