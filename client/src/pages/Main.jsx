@@ -7,11 +7,12 @@ import Dashboard from "../components/Dashboard.jsx";
 import AuthContext from "../context/auth/authContext.js";
 
 import "./Main.css";
+import PotCanvas from "../components/canvas/Pot.jsx";
 
 const Main = () => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, loading } = authContext;
-  console.log(isAuthenticated);
+
   return (
     <>
       {loading ? (
@@ -20,6 +21,7 @@ const Main = () => {
         <Dashboard />
       ) : (
         <div className="main">
+          <PotCanvas />
           <p className="info">
             Welcome to <span>Flavorites</span>. You can browse as a guest, or
             sign up to share recipes and create your own flavorites catalog.

@@ -121,6 +121,12 @@ const UserForm = ({ form_type, heading }) => {
             {form_type.toUpperCase()}
           </button>
         </form>
+        {form_type === "login" && (
+          <>
+            <p>username: test</p>
+            <p>password: 123456</p>
+          </>
+        )}
       </div>
     </>
   );
