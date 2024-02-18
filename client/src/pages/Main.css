@@ -20,7 +20,7 @@
   font-weight: 800;
   transform: rotate(-3deg);
   padding: 2px;
-  font-family: 'Gorditas', cursive;
+  font-family: "Gorditas", cursive;
 }
 @media (max-width: 35rem) {
   .main .info {
@@ -28,6 +28,9 @@
   }
 }
 @media (max-width: 30rem) {
+  .main {
+    margin: 0;
+  }
   .main .info {
     font-size: 1rem;
     margin: 1rem 1rem;

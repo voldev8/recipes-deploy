@@ -15,3 +15,9 @@
   color: #c0392b;
   font-weight: 600;
 }
+
+@media (max-width: 30rem) {
+  .recipe-list {
+    margin: 0;
+  }
+}

@@ -9,21 +9,10 @@ const Pot = () => {
   return (
     <mesh>
       <hemisphereLight intensity={1} groundColor="black" />
-      <spotLight
-        position={[5, 5, 5]}
-        penumbra={1}
-        intensity={1}
-        castShadow
-        shadow-mapSize={{ width: 1024, height: 1024 }}
-      />
-      <directionalLight intensity={0.9} position={[0, 5, 0]} castShadow />
-      <primitive
-        object={pot.scene}
-        scale={1.8}
-        position-y={-5}
-        receiveShadow
-        castShadow
-      />
+      <spotLight position={[5, 5, 5]} penumbra={1} intensity={1} />
+      <directionalLight intensity={0.9} position={[0, -5, 0]} />
+      <directionalLight intensity={0.9} position={[0, 5, 0]} />
+      <primitive object={pot.scene} scale={1.8} position-y={-5} />
     </mesh>
   );
 };

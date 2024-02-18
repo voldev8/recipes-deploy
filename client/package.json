@@ -1,8 +1,7 @@
 {
-  "name": "flavorites_app",
+  "name": "recipes-deploy-frontend",
   "homepage": ".",
   "private": true,
-  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

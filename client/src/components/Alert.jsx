@@ -11,8 +11,8 @@ const Alert = () => {
   const recipeContext = useContext(RecipeContext);
   const { deleteRecipe } = recipeContext;
 
-  const handleDelete = async () => {
-    const id = await localStorage.getItem("delete_id");
+  const handleDelete = () => {
+    const id = localStorage.getItem("delete_id");
     deleteRecipe(id);
     removeAlert();
     window.localStorage.removeItem("delete_id");

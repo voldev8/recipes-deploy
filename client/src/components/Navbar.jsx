@@ -1,30 +1,30 @@
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import logo from "/recipe-app-logo.png";
 
 import Sidebar from "./Sidebar";
-// import { CSSTransitionGroup } from "react-transition-group";
 
 import AuthContext from "../context/auth/authContext";
 
 import "./Navbar.css";
 
-function Navbar() {
-  const nodeRef = useRef(null);
+const Navbar = () => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, logout } = authContext;
-
-  const [sidebar, setSidebar] = useState(false);
-  const handleClick = () => {
-    setSidebar(!sidebar);
-  };
 
   const navigate = useNavigate();
   const loggingOut = () => {
     logout();
     navigate("/");
   };
+
+  const [sidebar, setSidebar] = useState(false);
+
+  const handleClick = () => {
+    setSidebar(!sidebar);
+  };
+
   return (
     <>
       <nav className="navbar">
@@ -78,16 +78,9 @@ function Navbar() {
           )}
         </div>
       </nav>
-      {/* <CSSTransition
-        className="sidebar-outer"
-        transitionName="slide"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}
-      > */}
       {sidebar && <Sidebar />}
-      {/* </CSSTransition> */}
     </>
   );
-}
+};
 
 export default Navbar;

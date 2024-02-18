@@ -12,17 +12,7 @@
   animation: appear 0.4s ease-out;
   background-color: #fff;
 }
-@keyframes appear {
-  0% {
-    transform: scale(0.5);
-  }
-  80% {
-    transform: scale(1.08);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+
 .recipe-form-container:hover {
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
   transition: 0.4s all;
@@ -115,8 +105,8 @@
 }
 
 @media (max-width: 35rem) {
-  .recipe-form-outer {
-    margin: 0.2rem 0;
+  .recipe-form-container {
+    margin: 2rem 0;
     width: 96vw;
   }
   .recipe-form {
@@ -137,5 +127,20 @@
   }
   .recipe-submit-btn {
     align-self: center;
+  }
+}
+
+@media (max-width: 30rem) {
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(0.5);
+  }
+  80% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
   }
 }

@@ -3,7 +3,7 @@
   top: 4rem;
   z-index: 10000;
   height: 100vh;
-  width: 50vw;
+  width: 70vw;
   background: linear-gradient(to right bottom, #f1c40f, #e67e22);
 }
 .sidebar-darken {
@@ -25,25 +25,4 @@
   font-size: 1.4rem;
   font-weight: 600;
   padding: 1rem;
-}
-.slide-enter {
-  transform: translateX(-100vw);
-  opacity: 0;
-}
-
-.slide-enter.slide-enter-active {
-  transform: translateX(0);
-  opacity: 1;
-  transition: all 300ms linear;
-}
-
-.slide-leave {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.slide-leave.slide-leave-active {
-  transform: translateX(-100vw);
-  opacity: 0;
-  transition: all 300ms linear;
 }

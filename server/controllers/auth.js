@@ -1,12 +1,12 @@
-const { validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
-const crypto = require('crypto');
+const { validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
+const crypto = require("crypto");
 
-const asyncHandler = require('../middleware/async');
-const saveCookie = require('../middleware/token');
-const sendEmail = require('../utils/sendEmail');
-const AppError = require('../utils/appError');
-const User = require('../models/User');
+const asyncHandler = require("../middleware/async");
+const saveCookie = require("../middleware/token");
+const sendEmail = require("../utils/sendEmail");
+const AppError = require("../utils/appError");
+const User = require("../models/User");
 
 // Register a user
 exports.signup = asyncHandler(async (req, res, next) => {
@@ -19,7 +19,7 @@ exports.signup = asyncHandler(async (req, res, next) => {
 
   let user = await User.findOne({ email });
   if (user) {
-    return next(new AppError('User already exists.', 400));
+    return next(new AppError("User already exists.", 400));
   }
   //if user doesn't exist create one
   user = new User({
@@ -48,12 +48,12 @@ exports.login = asyncHandler(async (req, res, next) => {
 
   let user = await User.findOne({ name });
   if (!user) {
-    return next(new AppError('Invalid Credentials', 400));
+    return next(new AppError("Invalid Credentials", 400));
   }
 
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) {
-    return next(new AppError('Invalid Credentials', 400));
+    return next(new AppError("Invalid Credentials", 400));
   }
 
   saveCookie(user, res);
@@ -61,7 +61,7 @@ exports.login = asyncHandler(async (req, res, next) => {
 
 // Log user out / clear cookie
 exports.logout = asyncHandler(async (req, res, next) => {
-  res.clearCookie('token');
+  res.clearCookie("token");
 
   res.status(200).json({
     success: true,
@@ -74,7 +74,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
 
   if (!user) {
-    return next(new AppError('There is no user with that email.', 400));
+    return next(new AppError("There is no user with that email.", 400));
   }
 
   // Get reset token
@@ -93,19 +93,19 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
   try {
     await sendEmail({
       email: user.email,
-      subject: 'Password reset token',
+      subject: "Password reset token",
       // message,
       resetUrl,
     });
 
-    res.status(200).json({ success: true, data: 'Email sent' });
+    res.status(200).json({ success: true, data: "Email sent" });
   } catch (err) {
     console.log(err);
     user.getResetPasswordToken = undefined;
     user.getResetPasswordExpire = undefined;
 
     await user.save({ validateBeforeSave: false });
-    return next(new AppError('Email could not be sent.', 500));
+    return next(new AppError("Email could not be sent.", 500));
   }
 });
 
@@ -113,9 +113,9 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 exports.resetPassword = asyncHandler(async (req, res, next) => {
   // Get hashed token
   const resetPasswordToken = crypto
-    .createHash('sha256')
+    .createHash("sha256")
     .update(req.params.resettoken)
-    .digest('hex');
+    .digest("hex");
 
   const user = await User.findOne({
     resetPasswordToken,
@@ -123,7 +123,7 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
   });
 
   if (!user) {
-    return next(new AppError('Invalid token.', 400));
+    return next(new AppError("Invalid token.", 400));
   }
 
   // Set new password

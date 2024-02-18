@@ -11,6 +11,7 @@
 }
 @media (max-width: 30rem) {
   .container {
+    margin: 1rem 0;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }

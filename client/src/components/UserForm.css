@@ -73,8 +73,8 @@
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
 }
 
-@media (max-width: 35rem) {
-  .login-form-outer {
-    /* padding-top: 4rem; */
+@media (max-width: 30rem) {
+  .form-container {
+    padding: 0;
   }
 }

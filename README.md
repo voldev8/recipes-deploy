@@ -1,68 +1,75 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Flavorites App
 
-## Available Scripts
+This is a simple CRUD application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack.
+It uses the [Vite](https://vitejs.dev/) Build tool
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Model animation using react-three
+- User authentication (sign up, login, logout with JWT auth)
+- Protected routes and endpoints
+- Custom middlewares for token and error
+- Favorite, add, edit, and delete recipes
+- Search recipes by name or tags
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Live Demo
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+[Flavorites App](https://flavorites.herokuapp.com/)
 
-### `npm test`
+## Screenshot
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Flavorites Screenshot](https://github.com/voldev8/recipes-deploy/blob/master/client/src/assets/flavorites_screenshot.png)
 
-### `npm run build`
+## Updates
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- from v1 to v2
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+-- Switched from create react app to Vite
+-- updated react v16 to v18
+-- updated react-router-dom v5 to v6
+-- added 3d model on main page
+-- new folder structure
+-- visual improvements and styling
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Folder Structure
 
-### `npm run eject`
+- `client`: Contains the React.js frontend code.
+- `server`: Contains the Node.js backend code.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Env Variables
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+in ./server folder
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+MONGO_URI="mongodb+srv://{username}:{password}@cluster0-lksnb.mongodb.net/{database}?retryWrites=true&w=majority"
+JWT_COOKIE_EXPIRE="30000"
+JWT_EXPIRE="30d"
+JWT_SECRET="secret"
+FROM_EMAIL="noreply@email.com"
+FROM_NAME="name"
+SENDGRID_API_KEY="api_key"
+SENDGRID_PASSWORD="password"
+SENDGRID_PORT="port_number"
+SENDGRID_USERNAME="apikey"
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Install Dependencies
 
-## Learn More
+```bash
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+cd ./server
+npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+cd ./client
+npm install
+```
 
-### Code Splitting
+## Run
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```bash
+npm run dev
+```
 
-### Analyzing the Bundle Size
+## Older versions
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Front End](https://github.com/voldev8/recipes-api)
+[Back End](https://github.com/voldev8/recipes-client)

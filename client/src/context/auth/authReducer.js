@@ -14,7 +14,7 @@ import {
   ADD_FAV,
   REMOVE_FAV,
   RESET_PASS,
-} from '../types';
+} from "../types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -28,7 +28,7 @@ export default (state, action) => {
     case SIGNUP_SUCCESS:
     case LOGIN_SUCCESS:
     case RESET_PASS:
-      document.cookie = 'token=' + action.payload.token + '; secure';
+      document.cookie = "token=" + action.payload.token + "; secure";
       return {
         ...state,
         ...action.payload,

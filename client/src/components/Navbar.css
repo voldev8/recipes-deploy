@@ -15,7 +15,7 @@
   box-shadow: 1px 3px 12px #000000;
 }
 .logo h2 {
-  font-family: 'Gorditas', cursive;
+  font-family: "Gorditas", cursive;
 }
 .pages {
   display: flex;
@@ -58,6 +58,9 @@
 }
 
 @media (max-width: 35rem) {
+  .navbar {
+    z-index: 10000;
+  }
   .navbar .logo h2,
   .pages {
     display: none;

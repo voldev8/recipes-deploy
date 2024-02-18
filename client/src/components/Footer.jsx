@@ -1,7 +1,7 @@
-import githubLogo from "../assets/GitHub-Mark-Light-32px.png";
+import githubLogo from "../assets/github-logo-32px.png";
 import "./Footer.css";
 
-function Footer() {
+const Footer = () => {
   return (
     <footer>
       <a
@@ -15,6 +15,6 @@ function Footer() {
       <p className="copyright">© 2024 Voldev. All rights reserved.</p>
     </footer>
   );
-}
+};
 
 export default Footer;

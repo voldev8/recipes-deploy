@@ -158,6 +158,7 @@ const AuthState = (props) => {
       console.log(err);
     }
   };
+
   const addFav = async (recipeId) => {
     try {
       const res = await axiosPath.put(
@@ -178,6 +179,7 @@ const AuthState = (props) => {
       console.log(err);
     }
   };
+
   const removeFav = async (recipeId) => {
     try {
       const res = await axiosPath.put(

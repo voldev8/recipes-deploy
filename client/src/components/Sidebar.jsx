@@ -5,7 +5,7 @@ import AuthContext from "../context/auth/authContext";
 
 import "./Sidebar.css";
 
-function Sidebar() {
+const Sidebar = () => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, logout } = authContext;
 
@@ -35,6 +35,6 @@ function Sidebar() {
       <div className="sidebar-darken"></div>
     </>
   );
-}
+};
 
 export default Sidebar;

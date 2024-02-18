@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import BigButton from "../components/BigButton.jsx";
 import Loading from "../components/Loading.jsx";
@@ -11,13 +11,11 @@ import PotCanvas from "../components/canvas/Pot.jsx";
 
 const Main = () => {
   const authContext = useContext(AuthContext);
-  const { isAuthenticated, loading } = authContext;
+  const { isAuthenticated } = authContext;
 
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : isAuthenticated ? (
+      {isAuthenticated ? (
         <Dashboard />
       ) : (
         <div className="main">

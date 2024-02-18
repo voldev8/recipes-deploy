@@ -1,8 +1,7 @@
 import { useState } from "react";
-// import { CSSTransitionGroup } from "react-transition-group";
 import "./RecipeInput.css";
 
-const Input = ({ input_type, fn, rowType }) => {
+const RecipeInput = ({ input_type, fn, rowType }) => {
   const [focus, setFocus] = useState(false);
   // handle input change
   const handleInputChange = (e, idx) => {
@@ -27,12 +26,6 @@ const Input = ({ input_type, fn, rowType }) => {
   };
 
   return (
-    // <CSSTransitionGroup
-    //   className="row"
-    //   transitionName="fade"
-    //   transitionEnterTimeout={500}
-    //   transitionLeaveTimeout={300}
-    // >
     <>
       <label htmlFor={rowType}>
         <p>{`${rowType}:`}</p>
@@ -69,4 +62,4 @@ const Input = ({ input_type, fn, rowType }) => {
   );
 };
 
-export default Input;
+export default RecipeInput;

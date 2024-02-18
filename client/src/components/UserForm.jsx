@@ -30,6 +30,11 @@ const UserForm = ({ form_type, heading }) => {
       navigate("/");
     }
 
+    if (error === "User already exists.") {
+      setAlert(error, "danger");
+      clearErrors();
+    }
+
     if (error === "Invalid Credentials") {
       setAlert(error, "danger");
       clearErrors();
@@ -42,6 +47,7 @@ const UserForm = ({ form_type, heading }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (form_type === "login") {
       if (name === "" || password === "") {
         setAlert("Please fill in all fields", "danger");
@@ -52,7 +58,7 @@ const UserForm = ({ form_type, heading }) => {
         });
       }
     }
-    if (form_type === "signup") {
+    if (form_type === "sign_up") {
       if (name === "" || email === "" || password === "") {
         setAlert("Please fill in all fields", "danger");
       } else if (password !== password_confirm) {
@@ -76,13 +82,13 @@ const UserForm = ({ form_type, heading }) => {
             <input
               type="text"
               name="name"
-              id="name"
+              id="username"
               required
               onChange={handleChange}
             />
             <label htmlFor="name">Username</label>
           </div>
-          {form_type === "signup" && (
+          {form_type === "sign_up" && (
             <div className="form-group">
               <input
                 type="text"
@@ -105,7 +111,7 @@ const UserForm = ({ form_type, heading }) => {
             />
             <label htmlFor="password">Password</label>
           </div>
-          {form_type === "signup" && (
+          {form_type === "sign_up" && (
             <div className="form-group">
               <input
                 type="password"
@@ -117,8 +123,8 @@ const UserForm = ({ form_type, heading }) => {
               <label htmlFor="password_confirm"> Confirm Password</label>
             </div>
           )}
-          <button type="submit" class="btn">
-            {form_type.toUpperCase()}
+          <button type="submit" className="btn">
+            {form_type.toUpperCase().replace("_", " ")}
           </button>
         </form>
         {form_type === "login" && (

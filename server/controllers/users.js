@@ -1,12 +1,12 @@
-const bcrypt = require('bcryptjs');
-const asyncHandler = require('../middleware/async');
-const saveCookie = require('../middleware/token');
+const bcrypt = require("bcryptjs");
+const asyncHandler = require("../middleware/async");
+const saveCookie = require("../middleware/token");
 // const AppError = require('../utils/appError');
-const User = require('../models/User');
+const User = require("../models/User");
 
 // Get logged in user
 exports.getUser = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.user.id).select('-password'); // we don't return the password
+  const user = await User.findById(req.user.id).select("-password"); // we don't return the password
   res.status(200).json({ success: true, data: user });
 });
 
@@ -33,7 +33,7 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
 
   // Check current password
   const isMatch = await bcrypt.compare(req.body.password, user.password);
-  if (!isMatch) return res.status(401).json({ msg: 'Password is incorrect' });
+  if (!isMatch) return res.status(401).json({ msg: "Password is incorrect" });
 
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(req.body.newPassword, salt);
@@ -50,7 +50,7 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
 // Favorites
 // Get Favorites
 exports.getFav = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.user.id).select('-password'); // we don't return the password
+  const user = await User.findById(req.user.id).select("-password"); // we don't return the password
   res.status(200).json({ success: true, data: user.favRecipes });
 });
 
