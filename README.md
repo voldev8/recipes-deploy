@@ -23,13 +23,12 @@ It uses the [Vite](https://vitejs.dev/) Build tool
 ## Updates
 
 - from v1 to v2
-
--- Switched from create react app to Vite
--- updated react v16 to v18
--- updated react-router-dom v5 to v6
--- added 3d model on main page
--- new folder structure
--- visual improvements and styling
+  - switched from create react app to Vite
+  - updated react v16 to v18
+  - updated react-router-dom v5 to v6
+  - added 3d model on main page
+  - new folder structure
+  - visual improvements and styling
 
 # Folder Structure
 
@@ -40,6 +39,7 @@ It uses the [Vite](https://vitejs.dev/) Build tool
 
 in ./server folder
 
+```bash
 MONGO_URI="mongodb+srv://{username}:{password}@cluster0-lksnb.mongodb.net/{database}?retryWrites=true&w=majority"
 JWT_COOKIE_EXPIRE="30000"
 JWT_EXPIRE="30d"
@@ -50,6 +50,7 @@ SENDGRID_API_KEY="api_key"
 SENDGRID_PASSWORD="password"
 SENDGRID_PORT="port_number"
 SENDGRID_USERNAME="apikey"
+```
 
 ## Install Dependencies
 
@@ -71,5 +72,5 @@ npm run dev
 
 ## Older versions
 
-[Front End](https://github.com/voldev8/recipes-api)
-[Back End](https://github.com/voldev8/recipes-client)
+- [Front End](https://github.com/voldev8/recipes-api)
+- [Back End](https://github.com/voldev8/recipes-client)
