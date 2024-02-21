@@ -1,25 +1,25 @@
-const sgMail = require('@sendgrid/mail');
-const pug = require('pug');
-const htmlToText = require('html-to-text');
+// const sgMail = require('@sendgrid/mail');
+// const pug = require('pug');
+// const htmlToText = require('html-to-text');
 
 // using Twilio SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
-const sendEmail = async (options) => {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  const html = pug.renderFile(`${__dirname}/../views/passwordReset.pug`, {
-    url: options.resetUrl,
-  });
-  const msg = {
-    to: options.email,
-    from: `${process.env.FROM_NAME} <${process.env.FROM_EMAIL}>`,
-    subject: options.subject,
-    text: htmlToText.fromString(html),
-    html,
-  };
-  sgMail.send(msg);
-};
+// const sendEmail = async (options) => {
+//   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+//   const html = pug.renderFile(`${__dirname}/../views/passwordReset.pug`, {
+//     url: options.resetUrl,
+//   });
+//   const msg = {
+//     to: options.email,
+//     from: `${process.env.FROM_NAME} <${process.env.FROM_EMAIL}>`,
+//     subject: options.subject,
+//     text: htmlToText.fromString(html),
+//     html,
+//   };
+//   sgMail.send(msg);
+// };
 
-module.exports = sendEmail;
+// module.exports = sendEmail;
 
 // const nodemailer = require('nodemailer');
 
