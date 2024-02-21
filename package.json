@@ -1,5 +1,5 @@
 {
-  "name": "recipes-deploy-master",
+  "name": "flavorites",
   "version": "2.0.1",
   "description": "flavorites app",
   "scripts": {
