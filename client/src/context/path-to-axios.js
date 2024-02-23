@@ -6,7 +6,7 @@ const apiBaseUrl = import.meta.env.REACT_APP_API_URL || "http://localhost:5000";
 const axiosPath = axios.create({
   baseURL: apiBaseUrl,
   withCredentials: true,
-  "Access-Control-Allow-Origin": "http://localhost:5000",
+  "Access-Control-Allow-Origin": apiBaseUrl,
 });
 
 export default axiosPath;
